@@ -26,5 +26,31 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Joueur.cs" />
+    <Compile Include="Gladiateur.cs" />
+    <Compile Include="Equipements\BouclierRectangulaire.cs" />
+    <Compile Include="Equipements\Casque.cs" />
+    <Compile Include="Equipements\Dague.cs" />
+    <Compile Include="Equipements\Epee.cs" />
+    <Compile Include="Equipements\Filet.cs" />
+    <Compile Include="Equipements\Lance.cs" />
+    <Compile Include="Equipements\PetitBouclierRond.cs" />
+    <Compile Include="Equipements\Trident.cs" />
+    <Compile Include="Equipe.cs" />
+    <Compile Include="Equipement.cs" />
+    <Compile Include="Equipements\Comportements\Interfaces\ComportementAttaque.cs" />
+    <Compile Include="Equipements\Comportements\Interfaces\ComportementDefense.cs" />
+    <Compile Include="Equipements\Comportements\Attaque.cs" />
+    <Compile Include="Equipements\Comportements\NePasAttaquer.cs" />
+    <Compile Include="Equipements\Comportements\NePasSeDefendre.cs" />
+    <Compile Include="Equipements\Comportements\SeDefendre.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Equipements\" />
+    <Folder Include="Equipements\Comportements\" />
+    <Folder Include="Equipements\Comportements\Interfaces\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
