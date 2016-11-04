@@ -9,6 +9,8 @@ namespace TPCombatGladiateursPOO
 		public string Nom
 		{
 			get { return this._Nom; }
+			set { this._Nom = value; }
+
 		}
 
 		private int _Cout;
@@ -19,10 +21,10 @@ namespace TPCombatGladiateursPOO
 		}
 
 		private ComportementAttaque _ComportementAttaque;
-		public ComportementAttaque ComportementAttaque{get;set;}
+		public ComportementAttaque ComportementAttaque { get { return this._ComportementAttaque; } set { this._ComportementAttaque = value; } }
 		
 		private ComportementDefense _ComportementDefense;
-		public ComportementDefense ComportementDefense{get;set;}
+		public ComportementDefense ComportementDefense { get { return this._ComportementDefense; } set { this._ComportementDefense = value; } }
 
 
 		private int _ChanceAttaque;
@@ -52,5 +54,6 @@ namespace TPCombatGladiateursPOO
 		{
 			return this.ComportementDefense.Riposter();
 		}
+		
 	}
 }

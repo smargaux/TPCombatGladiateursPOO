@@ -25,7 +25,8 @@ namespace TPCombatGladiateursPOO
 			get { return this._DateInscription;}
 
 		}
-		private List<Equipe> _LesEquipes = new List<Equipe>();
+
+		private List<Equipe> _LesEquipes;
 		
 		public List<Equipe> LesEquipes{
 					get { return this._LesEquipes;}
@@ -39,6 +40,8 @@ namespace TPCombatGladiateursPOO
 			this._Prenom = prenom;
 			this._Alias = alias;
 			this._DateInscription = DateTime.Now;
+			LesEquipes = new List<Equipe>();
+			
 		}
 		
 		
@@ -47,44 +50,33 @@ namespace TPCombatGladiateursPOO
 			return this.Nom+this.Prenom+this.Alias+this.DateInscription.ToString();
 		}
 		
-		public string CreerUneEquipe(string nomEquipe, string descriptionEquipe){
+		public Equipe CreerUneEquipe(string nomEquipe, string descriptionEquipe){
 
 			// On vérifie si le joueur peut créer une équipe
 			if (PeutCreerUneEquipe())
 			{
 				Equipe nouvelleEquipe = new Equipe(this, nomEquipe, descriptionEquipe);
-				LesEquipes.Add(nouvelleEquipe);
-				return "Bravo " + this.Alias + " votre nouvelle équipe " + nomEquipe + " a été créée !";
+				this.LesEquipes.Add(nouvelleEquipe);
+				return nouvelleEquipe;
 			}
 			else{
-				return "Désolé " + this.Alias + " vous ne pouvez plus créer d'équipe !";
+				return null;
 			}
 			
 		}
 		
-		public Boolean PeutCreerUneEquipe(){
-		
-			int nbEquipes=this.LesEquipes.Count;
-			if (nbEquipes < 5)
-			{
+		public bool PeutCreerUneEquipe(){
+
+			if (this.LesEquipes.Count < 5)
 				return true;
-			}
-			else {
+			else 
 				return false;
-			}
 		}
 		
-		
-		public Equipe getEquipe(string nomEquipe){
-			Contract.Ensures(Contract.Result<Equipe>() != null);
-			Equipe equipeDemande;
-			foreach (var equipe in this.LesEquipes)
-			{
-				if (equipe.Nom.Equals(nomEquipe))
-					 equipeDemande = equipe;
-			}
-			return equipeDemande;
+		public Equipe RecupererEquipe(string nom){
+			return this.LesEquipes.Find(equipe => equipe.Nom == nom);
 		}
+	
 		
 	}
 }

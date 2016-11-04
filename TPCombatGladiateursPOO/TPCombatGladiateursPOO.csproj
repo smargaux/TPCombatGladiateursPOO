@@ -46,11 +46,16 @@
     <Compile Include="Equipements\Comportements\NePasAttaquer.cs" />
     <Compile Include="Equipements\Comportements\NePasSeDefendre.cs" />
     <Compile Include="Equipements\Comportements\SeDefendre.cs" />
+    <Compile Include="Jeu\Tournoi.cs" />
+    <Compile Include="Jeu\Combat.cs" />
+    <Compile Include="Jeu\Duel.cs" />
+    <Compile Include="Jeu\PasseArme.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Equipements\" />
     <Folder Include="Equipements\Comportements\" />
     <Folder Include="Equipements\Comportements\Interfaces\" />
+    <Folder Include="Jeu\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

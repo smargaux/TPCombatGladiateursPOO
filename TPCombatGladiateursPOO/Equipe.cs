@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using TPCombatGladiateursPOO.Equipements;
 
 namespace TPCombatGladiateursPOO
@@ -14,8 +15,11 @@ namespace TPCombatGladiateursPOO
 		private int _NBMatchsPerdus;
 		private int _PourcentageVictoire;
 
-		private List<Gladiateur> LesGladiateurs = new List<Gladiateur>();
-		
+		private List<Gladiateur> _LesGladiateurs ;
+		public List<Gladiateur> LesGladiateurs{
+				get { return this._LesGladiateurs;}
+				set { this._LesGladiateurs = value; }
+		}
 		public Joueur JoueurProprietaire{
 			get { return this._JoueurProprietaire;}
 
@@ -41,6 +45,8 @@ namespace TPCombatGladiateursPOO
 		}
 		
 		//Constructeur
+		public Equipe(){
+		}
 		public Equipe(Joueur joueur, string nom, string description )
 		{
 			this._JoueurProprietaire = joueur;
@@ -50,9 +56,10 @@ namespace TPCombatGladiateursPOO
 			this._NBMatchsGagnes = 0;
 			this._NBMatchsPerdus = 0;
 			this._PourcentageVictoire = 0;
+			LesGladiateurs = new List<Gladiateur>();
 		}
-		
-		
+
+	
 		
 		public bool PeutAjouterUnGladiateur(){
 			int nbGladiateurs=this.LesGladiateurs.Count;
@@ -65,39 +72,40 @@ namespace TPCombatGladiateursPOO
 			}
 		}
 		
-		public string CreerUnGladiateur(string nomGladiateur, List<Equipement> equipement){
+		public bool EquipementsEstValide(List<Equipement> equipements){
 
-			// On vérifie si le joueur peut créer une équipe
+			int totalCout = 0;
+			foreach (var equipement in equipements)
+			{
+				totalCout = totalCout + equipement.Cout;
+			}
+			Console.WriteLine("Cout equipement: " + totalCout);
+			if(totalCout<10){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		
+		public Gladiateur CreerUnGladiateur(string nomGladiateur){
+
+			// On vérifie si le joueur peut créer un Gladiateur
 			if (PeutAjouterUnGladiateur())
 			{
 				//On vérifie qu'il n'a pas plus de dix points d'équipements
+					Gladiateur nouveauGladiateur = new Gladiateur(this, nomGladiateur);
+					LesGladiateurs.Add(nouveauGladiateur);
+					return nouveauGladiateur;
 				
-				
-				Gladiateur nouveauGladiateur = new Gladiateur(this, nomGladiateur, equipement);
-				LesGladiateurs.Add(nouveauGladiateur);
-				return "Bravo " + this.JoueurProprietaire.Alias + " votre nouvelle équipe " + this.Nom + " contient un nouveau Gladiateur "+nomGladiateur+" !";
 			}
 			else{
-				return "Désolé " + this.JoueurProprietaire.Alias + " vous ne pouvez plus créer de gladiateurs !";
+				return null;
 			}
 			
 		}
 		
-		public bool EquipementsEstValide(List<Equipement> Equipements){
-
-			int totalCout = 0;
-			foreach (var equipement in Equipements)
-			{
-				totalCout = totalCout + equipement.Cout;
-			}
-			
-			if(totalCout<10){
-				return false;
-			}
-			else{
-				return true;
-			}
-		}
+		
 		
 	}
 }
