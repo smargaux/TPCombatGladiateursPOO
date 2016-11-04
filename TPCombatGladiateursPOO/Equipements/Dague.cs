@@ -11,6 +11,7 @@ namespace TPCombatGladiateursPOO.Equipements
 			this.ChanceAttaque = 60;
 			this.ChanceDefense = 0;
 			this.Cout = 2;
+			this.Nom = "Dague";
 		}
 	}
 }

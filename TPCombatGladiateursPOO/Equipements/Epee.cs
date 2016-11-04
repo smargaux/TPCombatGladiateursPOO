@@ -11,6 +11,7 @@ namespace TPCombatGladiateursPOO.Equipements
 			this.ChanceAttaque = 70;
 			this.ChanceDefense = 0;
 			this.Cout = 5;
+			this.Nom = "Epée";
 		}
 	}
 }

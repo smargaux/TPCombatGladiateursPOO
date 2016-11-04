@@ -11,6 +11,8 @@ namespace TPCombatGladiateursPOO.Equipements
 			this.ChanceAttaque = 40;
 			this.ChanceDefense = 10;
 			this.Cout = 7;
+			this.Nom = "Trident";
+
 		}
 	}
 }

@@ -12,6 +12,7 @@ namespace TPCombatGladiateursPOO
 			this.ChanceAttaque = 0;
 			this.ChanceDefense = 30;
 			this.Cout = 8;
+			this.Nom = "Bouclier rectangulaire";
 		}
 	}
 }

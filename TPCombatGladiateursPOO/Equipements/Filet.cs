@@ -11,6 +11,7 @@ namespace TPCombatGladiateursPOO.Equipements
 			this.ChanceAttaque = 30;
 			this.ChanceDefense = 0;
 			this.Cout = 3;
+			this.Nom = "Filet";
 		}
 	}
 }

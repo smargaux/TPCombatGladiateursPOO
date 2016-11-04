@@ -11,6 +11,8 @@ namespace TPCombatGladiateursPOO.Equipements
 			this.ChanceAttaque = 50;
 			this.ChanceDefense = 0;
 			this.Cout = 7;
+			this.Nom = "Nom";
+
 		}
 	}
 }

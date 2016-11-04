@@ -12,6 +12,8 @@ namespace TPCombatGladiateursPOO.Equipements
 			this.ChanceAttaque = 0;
 			this.ChanceDefense = 20;
 			this.Cout = 5;
+			this.Nom = "Petit bouclier rond";
+
 		}
 	}
 }
