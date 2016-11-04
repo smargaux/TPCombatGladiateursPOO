@@ -20,6 +20,12 @@ namespace TPCombatGladiateursPOO
 			get { return this._Etat;}
 			set { this._Etat = value; }
 		}
+		
+		private int _Ordre;
+		public int Ordre{
+			get { return this._Ordre;}
+			set { this._Ordre = value; }
+		}
 
 		private int _NbVictoires;
 		public int NbVictoires{
@@ -29,8 +35,8 @@ namespace TPCombatGladiateursPOO
 
 		private int _NbDefaites;
 		public int NbDefaites{
-			get { return this.NbDefaites;}
-			set { this._NbVictoires = value; }
+			get { return this._NbDefaites;}
+			set { this._NbDefaites = value; }
 		}
 
 		private List<Equipement> _LesEquipements;
@@ -38,10 +44,12 @@ namespace TPCombatGladiateursPOO
 				get { return this._LesEquipements;}
 				set { this._LesEquipements=value;}
 		}
-		public Gladiateur(Equipe equipe, string nom)
+		public Gladiateur(Equipe equipe, string nom, int ordre)
 		{
 			this._Equipe = equipe;
 			this._Nom = nom;
+			this._Ordre = ordre;
+			this._Etat = 1;
 			this._LesEquipements = new List<Equipement>();
 			this._NbVictoires = 0;
 			this._NbDefaites = 0;

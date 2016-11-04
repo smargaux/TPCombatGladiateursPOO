@@ -20,6 +20,12 @@ namespace TPCombatGladiateursPOO
 				get { return this._LesGladiateurs;}
 				set { this._LesGladiateurs = value; }
 		}
+
+		public static explicit operator Equipe(List<Equipe> v)
+		{
+			throw new NotImplementedException();
+		}
+
 		public Joueur JoueurProprietaire{
 			get { return this._JoueurProprietaire;}
 
@@ -62,8 +68,7 @@ namespace TPCombatGladiateursPOO
 	
 		
 		public bool PeutAjouterUnGladiateur(){
-			int nbGladiateurs=this.LesGladiateurs.Count;
-			if (nbGladiateurs < 3)
+			if (this.LesGladiateurs.Count < 3)
 			{
 				return true;
 			}
@@ -72,29 +77,13 @@ namespace TPCombatGladiateursPOO
 			}
 		}
 		
-		public bool EquipementsEstValide(List<Equipement> equipements){
-
-			int totalCout = 0;
-			foreach (var equipement in equipements)
-			{
-				totalCout = totalCout + equipement.Cout;
-			}
-			Console.WriteLine("Cout equipement: " + totalCout);
-			if(totalCout<10){
-				return true;
-			}
-			else{
-				return false;
-			}
-		}
-		
-		public Gladiateur CreerUnGladiateur(string nomGladiateur){
+		public Gladiateur CreerUnGladiateur(string nomGladiateur, int ordre){
 
 			// On vérifie si le joueur peut créer un Gladiateur
 			if (PeutAjouterUnGladiateur())
 			{
 				//On vérifie qu'il n'a pas plus de dix points d'équipements
-					Gladiateur nouveauGladiateur = new Gladiateur(this, nomGladiateur);
+					Gladiateur nouveauGladiateur = new Gladiateur(this, nomGladiateur, ordre);
 					LesGladiateurs.Add(nouveauGladiateur);
 					return nouveauGladiateur;
 				
